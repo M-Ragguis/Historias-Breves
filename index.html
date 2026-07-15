@@ -1,126 +1,184 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Comic Viewer</title>
 
 <style>
 
-body{
+*{
     margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
     background:white;
-    font-family:Arial,sans-serif;
+    overflow:hidden;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+#viewer{
+    width:100vw;
+    height:100vh;
     display:flex;
     flex-direction:column;
+    justify-content:center;
     align-items:center;
 }
 
-h2{
-    margin-top:25px;
-    margin-bottom:10px;
-    font-weight:normal;
-}
-
 #counter{
-    margin-bottom:20px;
-    color:#666;
+    font-size:13px;
+    color:#999;
+    margin-bottom:12px;
 }
 
 img{
-    max-width:90vw;
-    max-height:75vh;
+    max-width:98vw;
+    max-height:90vh;
     object-fit:contain;
-}
-
-.controls{
-    margin:25px;
-    display:flex;
-    gap:25px;
-}
-
-button{
-    padding:12px 24px;
-    font-size:16px;
+    user-select:none;
     cursor:pointer;
-    border:1px solid #ccc;
-    background:white;
 }
 
-button:hover{
-    background:#f2f2f2;
+.nav{
+    position:fixed;
+    top:0;
+    width:8vw;
+    height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:60px;
+    color:rgba(0,0,0,.15);
+    cursor:pointer;
+    user-select:none;
+    transition:.2s;
+}
+
+.nav:hover{
+    color:rgba(0,0,0,.45);
+}
+
+#first{
+    left:0;
+}
+
+#left{
+    left:8vw;
+}
+
+#right{
+    right:8vw;
+}
+
+#last{
+    right:0;
 }
 
 </style>
+
 </head>
 
 <body>
 
-<h2>Mi Comic</h2>
+<div id="viewer">
 
 <div id="counter"></div>
 
 <img id="page">
 
-<div class="controls">
-<button onclick="prev()">◀ Anterior</button>
-<button onclick="next()">Siguiente ▶</button>
 </div>
+
+<div id="first" class="nav">⏮</div>
+
+<div id="left" class="nav">❮</div>
+
+<div id="right" class="nav">❯</div>
+
+<div id="last" class="nav">⏭</div>
 
 <script>
 
-const total=20;
+const total = 18;
 
-let page=1;
+let current = 1;
 
-const img=document.getElementById("page");
-const counter=document.getElementById("counter");
+const image = document.getElementById("page");
+const counter = document.getElementById("counter");
 
-function update(){
+function loadPage(){
 
-let number=String(page).padStart(3,"0");
+    const number = String(current).padStart(3,"0");
 
-img.src=`stories/comic/${number}.jpg`;
+    image.src = "stories/comic/" + number + ".jpg";
 
-counter.innerHTML=`${page} / ${total}`;
+    counter.textContent = current + " / " + total;
 
 }
 
 function next(){
 
-if(page<total){
+    if(current < total){
 
-page++;
+        current++;
+        loadPage();
 
-update();
-
-}
-
-}
-
-function prev(){
-
-if(page>1){
-
-page--;
-
-update();
+    }
 
 }
 
+function previous(){
+
+    if(current > 1){
+
+        current--;
+        loadPage();
+
+    }
+
 }
 
-document.addEventListener("keydown",e=>{
+function first(){
 
-if(e.key=="ArrowRight") next();
+    current = 1;
+    loadPage();
 
-if(e.key=="ArrowLeft") prev();
+}
+
+function last(){
+
+    current = total;
+    loadPage();
+
+}
+
+document.getElementById("left").onclick = previous;
+document.getElementById("right").onclick = next;
+document.getElementById("first").onclick = first;
+document.getElementById("last").onclick = last;
+
+image.onclick = next;
+
+document.addEventListener("keydown",(e)=>{
+
+    if(e.key==="ArrowRight") next();
+
+    if(e.key==="ArrowLeft") previous();
+
+    if(e.key==="Home") first();
+
+    if(e.key==="End") last();
 
 });
 
-update();
+loadPage();
 
 </script>
 
 </body>
+
 </html>
