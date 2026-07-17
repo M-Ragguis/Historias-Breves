@@ -17,20 +17,23 @@
 }
 
 body{
-    background:#fff;
-    overflow:hidden;
+
+    background:white;
     font-family:Arial, Helvetica, sans-serif;
+
 }
 
 #viewer{
 
-    width:100vw;
-    height:100vh;
+    min-height:100vh;
 
     display:flex;
     flex-direction:column;
+
     justify-content:center;
     align-items:center;
+
+    padding:20px;
 
 }
 
@@ -39,14 +42,51 @@ body{
     font-size:13px;
     color:#999;
 
-    margin-bottom:10px;
+    margin-bottom:15px;
+
+}
+
+/* -------- FILA PRINCIPAL -------- */
+
+#main{
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    gap:20px;
+
+    width:100%;
+
+}
+
+.navSide{
+
+    font-size:60px;
+
+    color:rgba(0,0,0,.20);
+
+    cursor:pointer;
+
+    user-select:none;
+
+    transition:.2s;
+
+    flex-shrink:0;
+
+}
+
+.navSide:hover{
+
+    color:rgba(0,0,0,.55);
 
 }
 
 img{
 
-    max-width:98vw;
-    max-height:90vh;
+    max-width:92vw;
+    max-height:82vh;
 
     object-fit:contain;
 
@@ -56,113 +96,80 @@ img{
 
 }
 
-/* ---------- BOTONES ---------- */
+/* -------- FILA INFERIOR -------- */
 
-.nav{
-
-    position:fixed;
-
-    width:8vw;
-    height:100vh;
-
-    top:0;
+#bottomNav{
 
     display:flex;
 
     justify-content:center;
-    align-items:center;
 
-    font-size:60px;
+    gap:80px;
 
-    color:rgba(0,0,0,.15);
+    margin-top:20px;
+
+}
+
+.navBottom{
+
+    font-size:34px;
+
+    color:rgba(0,0,0,.35);
 
     cursor:pointer;
 
-    transition:.20s;
+    transition:.2s;
 
     user-select:none;
 
 }
 
-.nav:hover{
+.navBottom:hover{
 
-    color:rgba(0,0,0,.45);
-
-}
-
-#first{
-
-    left:0;
+    color:rgba(0,0,0,.7);
 
 }
 
-#left{
+/* -------- CELULAR -------- */
 
-    left:8vw;
+@media (max-width:700px){
 
-}
+    #viewer{
 
-#right{
-
-    right:8vw;
-
-}
-
-#last{
-
-    right:0;
-
-}
-
-/* ---------- MÓVIL ---------- */
-
-@media (max-width:900px){
-
-    img{
-
-        max-width:96vw;
-        max-height:78vh;
+        padding:10px;
 
     }
 
-    .nav{
+    #main{
 
-        width:50vw;
-        height:70px;
+        gap:10px;
+
+    }
+
+    .navSide{
 
         font-size:42px;
 
-        color:rgba(0,0,0,.35);
+    }
 
-        background:white;
+    img{
+
+        max-width:82vw;
+        max-height:72vh;
 
     }
 
-    #first{
+    #bottomNav{
 
-        top:0;
-        left:0;
+        gap:45px;
 
-    }
-
-    #left{
-
-        top:0;
-        left:50vw;
+        margin-top:15px;
 
     }
 
-    #right{
+    .navBottom{
 
-        top:calc(100vh - 70px);
-        left:0;
-
-    }
-
-    #last{
-
-        top:calc(100vh - 70px);
-        left:50vw;
+        font-size:28px;
 
     }
 
@@ -178,17 +185,25 @@ img{
 
 <div id="counter"></div>
 
+<div id="main">
+
+<div id="left" class="navSide">❮</div>
+
 <img id="page">
+
+<div id="right" class="navSide">❯</div>
 
 </div>
 
-<div id="first" class="nav">⏮</div>
+<div id="bottomNav">
 
-<div id="left" class="nav">❮</div>
+<div id="first" class="navBottom">⏮</div>
 
-<div id="right" class="nav">❯</div>
+<div id="last" class="navBottom">⏭</div>
 
-<div id="last" class="nav">⏭</div>
+</div>
+
+</div>
 
 <script>
 
@@ -245,23 +260,26 @@ function last(){
 
 }
 
-document.getElementById("left").onclick = previous;
-document.getElementById("right").onclick = next;
-document.getElementById("first").onclick = first;
-document.getElementById("last").onclick = last;
+document.getElementById("left").addEventListener("click", previous);
 
-image.onclick = next;
+document.getElementById("right").addEventListener("click", next);
 
-document.addEventListener("keydown",(e)=>{
+document.getElementById("first").addEventListener("click", first);
+
+document.getElementById("last").addEventListener("click", last);
+
+image.addEventListener("click", next);
+
+document.addEventListener("keydown", function(e){
 
     switch(e.key){
 
-        case "ArrowRight":
-            next();
-            break;
-
         case "ArrowLeft":
             previous();
+            break;
+
+        case "ArrowRight":
+            next();
             break;
 
         case "Home":
