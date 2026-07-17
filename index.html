@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
 
 <meta charset="UTF-8">
@@ -16,67 +17,155 @@
 }
 
 body{
-    background:white;
+    background:#fff;
     overflow:hidden;
     font-family:Arial, Helvetica, sans-serif;
 }
 
 #viewer{
+
     width:100vw;
     height:100vh;
+
     display:flex;
     flex-direction:column;
     justify-content:center;
     align-items:center;
+
 }
 
 #counter{
+
     font-size:13px;
     color:#999;
-    margin-bottom:12px;
+
+    margin-bottom:10px;
+
 }
 
 img{
+
     max-width:98vw;
     max-height:90vh;
+
     object-fit:contain;
-    user-select:none;
+
     cursor:pointer;
+
+    user-select:none;
+
 }
 
+/* ---------- BOTONES ---------- */
+
 .nav{
+
     position:fixed;
-    top:0;
+
     width:8vw;
     height:100vh;
+
+    top:0;
+
     display:flex;
-    align-items:center;
+
     justify-content:center;
+    align-items:center;
+
     font-size:60px;
+
     color:rgba(0,0,0,.15);
+
     cursor:pointer;
+
+    transition:.20s;
+
     user-select:none;
-    transition:.2s;
+
 }
 
 .nav:hover{
+
     color:rgba(0,0,0,.45);
+
 }
 
 #first{
+
     left:0;
+
 }
 
 #left{
+
     left:8vw;
+
 }
 
 #right{
+
     right:8vw;
+
 }
 
 #last{
+
     right:0;
+
+}
+
+/* ---------- MÓVIL ---------- */
+
+@media (max-width:900px){
+
+    img{
+
+        max-width:96vw;
+        max-height:78vh;
+
+    }
+
+    .nav{
+
+        width:50vw;
+        height:70px;
+
+        font-size:42px;
+
+        color:rgba(0,0,0,.35);
+
+        background:white;
+
+    }
+
+    #first{
+
+        top:0;
+        left:0;
+
+    }
+
+    #left{
+
+        top:0;
+        left:50vw;
+
+    }
+
+    #right{
+
+        top:calc(100vh - 70px);
+        left:0;
+
+    }
+
+    #last{
+
+        top:calc(100vh - 70px);
+        left:50vw;
+
+    }
+
 }
 
 </style>
@@ -165,13 +254,25 @@ image.onclick = next;
 
 document.addEventListener("keydown",(e)=>{
 
-    if(e.key==="ArrowRight") next();
+    switch(e.key){
 
-    if(e.key==="ArrowLeft") previous();
+        case "ArrowRight":
+            next();
+            break;
 
-    if(e.key==="Home") first();
+        case "ArrowLeft":
+            previous();
+            break;
 
-    if(e.key==="End") last();
+        case "Home":
+            first();
+            break;
+
+        case "End":
+            last();
+            break;
+
+    }
 
 });
 
