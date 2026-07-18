@@ -63,7 +63,8 @@ body{
 
     position:absolute;
 
-    top:20px;
+    top:-52px;
+
     left:50%;
 
     transform:translateX(-50%);
@@ -72,7 +73,7 @@ body{
 
     font-size:26px;
 
-    letter-spacing:2px;
+    letter-spacing:.5px;
 
     font-weight:normal;
 
@@ -82,13 +83,15 @@ body{
 
 #menu{
 
-    margin-top:35px;
+    margin-top:28px;
 
     display:flex;
 
     justify-content:center;
 
-    gap:50px;
+    align-items:center;
+
+    gap:42px;
 
     flex-wrap:wrap;
 
@@ -99,31 +102,31 @@ body{
 
     text-decoration:none;
 
-    color:#666;
+    color:#777;
 
-    border:1px solid #ddd;
+    font-size:17px;
 
-    background:#f5f5f5;
-
-    padding:14px 34px;
-
-    transition:.25s;
-
-    font-size:20px;
-
-}
-
-#menu a:hover{
-
-    transform:translateY(-5px);
-
-    background:#ececec;
+    transition:all .2s ease;
 
 }
 
 #menu span{
 
     color:#999;
+
+}
+
+#menu a:hover{
+
+    color:#333;
+
+    transform:translateY(-2px);
+
+}
+
+#menu a:active{
+
+    transform:translateY(1px) scale(.97);
 
 }
 
@@ -143,9 +146,11 @@ body{
 
     #name{
 
+        top:-34px;
+
         font-size:18px;
 
-        top:12px;
+        letter-spacing:.3px;
 
     }
 
@@ -153,18 +158,14 @@ body{
 
         flex-direction:column;
 
-        width:100%;
-
-        gap:18px;
+        gap:14px;
 
     }
 
     #menu a,
     #menu span{
 
-        width:100%;
-
-        text-align:center;
+        font-size:16px;
 
     }
 
