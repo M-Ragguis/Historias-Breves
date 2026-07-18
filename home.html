@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Historias</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    font-family:Arial, Helvetica, sans-serif;
+    background:white;
+    color:#222;
+
+}
+
+header{
+
+    text-align:center;
+    padding:60px 20px 30px;
+
+}
+
+header h1{
+
+    font-size:42px;
+    font-weight:normal;
+
+}
+
+header p{
+
+    color:#888;
+    margin-top:10px;
+
+}
+
+#stories{
+
+    max-width:1000px;
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+
+    gap:40px;
+
+    padding:40px;
+
+}
+
+.story{
+
+    text-decoration:none;
+    color:inherit;
+
+    transition:.25s;
+
+}
+
+.story:hover{
+
+    transform:translateY(-6px);
+
+}
+
+.story img{
+
+    width:100%;
+    aspect-ratio:1/1;
+
+    object-fit:cover;
+
+    border:1px solid #ddd;
+
+}
+
+.story h2{
+
+    font-size:20px;
+    font-weight:normal;
+
+    text-align:center;
+
+    margin-top:14px;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<h1>Historias</h1>
+
+<p>Historias gráficas breves</p>
+
+</header>
+
+<div id="stories"></div>
+
+<script>
+
+async function cargarHistorias(){
+
+    const respuesta = await fetch("stories/stories.json");
+    const historias = await respuesta.json();
+
+    const contenedor = document.getElementById("stories");
+
+    for(const carpeta in historias){
+
+        const historia = historias[carpeta];
+
+        const tarjeta = document.createElement("a");
+
+        tarjeta.className="story";
+
+        tarjeta.href="index.html?story="+encodeURIComponent(carpeta);
+
+        tarjeta.innerHTML=`
+
+            <img src="stories/${carpeta}/${historia.cover}" alt="${historia.title}">
+
+            <h2>${historia.title}</h2>
+
+        `;
+
+        contenedor.appendChild(tarjeta);
+
+    }
+
+}
+
+cargarHistorias();
+
+</script>
+
+</body>
+</html>
