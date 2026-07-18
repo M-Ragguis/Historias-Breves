@@ -21,19 +21,23 @@ body{
     background:white;
     font-family:Arial, Helvetica, sans-serif;
 
+    overflow:hidden;
+
 }
 
 #viewer{
 
-    min-height:100vh;
+    height:100vh;
 
     display:flex;
+
     flex-direction:column;
 
-    justify-content:center;
+    justify-content:space-between;
+
     align-items:center;
 
-    padding:20px;
+    padding:10px;
 
 }
 
@@ -42,7 +46,7 @@ body{
     font-size:13px;
     color:#999;
 
-    margin-bottom:15px;
+    flex-shrink:0;
 
 }
 
@@ -50,14 +54,19 @@ body{
 
 #main{
 
+    flex:1;
+
+    width:100%;
+
     display:flex;
 
     align-items:center;
+
     justify-content:center;
 
     gap:20px;
 
-    width:100%;
+    overflow:hidden;
 
 }
 
@@ -83,10 +92,11 @@ body{
 
 }
 
-img{
+#page{
 
-    max-width:92vw;
-    max-height:82vh;
+    max-width:90vw;
+
+    max-height:70vh;
 
     object-fit:contain;
 
@@ -104,9 +114,11 @@ img{
 
     justify-content:center;
 
-    gap:80px;
+    gap:70px;
 
-    margin-top:20px;
+    margin-top:10px;
+
+    flex-shrink:0;
 
 }
 
@@ -130,54 +142,11 @@ img{
 
 }
 
-/* -------- CELULAR -------- */
-
-@media (max-width:700px){
-
-    #viewer{
-
-        padding:10px;
-
-    }
-
-    #main{
-
-        gap:10px;
-
-    }
-
-    .navSide{
-
-        font-size:42px;
-
-    }
-
-    img{
-
-        max-width:82vw;
-        max-height:72vh;
-
-    }
-
-    #bottomNav{
-
-        gap:45px;
-
-        margin-top:15px;
-
-    }
-
-    .navBottom{
-
-        font-size:28px;
-
-    }
-
-}
-
 #backHome{
 
-    margin-top:25px;
+    margin:8px 0 6px;
+
+    flex-shrink:0;
 
 }
 
@@ -197,9 +166,57 @@ img{
 
 }
 
-</style> 
+/* -------- CELULAR -------- */
 
+@media (max-width:700px){
 
+    #viewer{
+
+        padding:8px;
+
+    }
+
+    #main{
+
+        gap:10px;
+
+    }
+
+    .navSide{
+
+        font-size:42px;
+
+    }
+
+    #page{
+
+        max-width:82vw;
+
+        max-height:62vh;
+
+    }
+
+    #bottomNav{
+
+        gap:45px;
+
+    }
+
+    .navBottom{
+
+        font-size:28px;
+
+    }
+
+    #backHome a{
+
+        font-size:14px;
+
+    }
+
+}
+
+</style>
 
 </head>
 
@@ -228,17 +245,14 @@ img{
 </div>
 
 <div id="backHome">
-    <a href="home.html">← Volver a Historias</a>
+
+<a href="home.html">← Volver a Relatos</a>
+
 </div>
 
 </div>
 
 <script src="viewer.js"></script>
-
-</body>
-
-</html>
-
 
 </body>
 
