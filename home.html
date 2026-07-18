@@ -173,14 +173,14 @@ async function cargarHistorias(){
 
         tarjeta.href="viewer.html?story="+encodeURIComponent(carpeta);
 
-        tarjeta.innerHTML=`
+        tarjeta.innerHTML = `
 
-    <img src="stories/${carpeta}/${historia.cover}" alt="${historia.title}">
+<img src="stories/${carpeta}/${historia.cover}" alt="${historia.title}">
 
-    <h2>${historia.title.replaceAll("-", " ")}</h2>
+<h2>${historia.title.replaceAll("-", " ")}</h2>
 
 `;
-        `;
+        `;¨º
 
         contenedor.appendChild(tarjeta);
 
