@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Marce Ragguis</title>
+<title>Marce.Raggui</title>
 
 <style>
 
@@ -22,97 +21,152 @@ body{
     background:white;
     color:#222;
 
+    min-height:100vh;
+
     display:flex;
     justify-content:center;
     align-items:center;
 
-    min-height:100vh;
+    padding:30px;
 
 }
 
 #container{
 
-    text-align:center;
-    max-width:900px;
-    padding:40px;
+    width:100%;
+    max-width:1100px;
+
+    display:flex;
+    flex-direction:column;
+
+    align-items:center;
+
+}
+
+#imageBox{
+
+    position:relative;
+
+    width:100%;
+    max-width:950px;
 
 }
 
 #cover{
 
     width:100%;
-    max-width:875px;
-    margin-bottom:40px;
+    display:block;
 
 }
 
-h1{
+#name{
+
+    position:absolute;
+
+    top:20px;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    color:rgba(80,80,80,.65);
+
+    font-size:26px;
+
+    letter-spacing:2px;
 
     font-weight:normal;
 
-    font-size:26px;
-
-    color:#777;
-
-    margin-top:-20px;
-
-    margin-bottom:25px;
+    white-space:nowrap;
 
 }
 
-}
+#menu{
 
-.menu{
+    margin-top:35px;
 
     display:flex;
-    flex-direction:column;
-    gap:18px;
+
+    justify-content:center;
+
+    gap:50px;
+
+    flex-wrap:wrap;
 
 }
 
-.menu a{
+#menu a,
+#menu span{
 
     text-decoration:none;
-    color:#222;
-    font-size:26px;
 
-}
-
-.menu a:hover{
-
-    opacity:.55;
-
-}
-
-.soon{
-
-    color:#999;
-
-}
-
-.button{
-
-    display:inline-block;
-
-    padding:14px 34px;
+    color:#666;
 
     border:1px solid #ddd;
 
     background:#f5f5f5;
 
-    color:#666;
-
-    text-decoration:none;
+    padding:14px 34px;
 
     transition:.25s;
 
+    font-size:20px;
+
 }
 
-.button:hover{
+#menu a:hover{
 
     transform:translateY(-5px);
 
-    background:#ededed;
+    background:#ececec;
+
+}
+
+#menu span{
+
+    color:#999;
+
+}
+
+@media(max-width:700px){
+
+    body{
+
+        padding:15px;
+
+    }
+
+    #imageBox{
+
+        max-width:100%;
+
+    }
+
+    #name{
+
+        font-size:18px;
+
+        top:12px;
+
+    }
+
+    #menu{
+
+        flex-direction:column;
+
+        width:100%;
+
+        gap:18px;
+
+    }
+
+    #menu a,
+    #menu span{
+
+        width:100%;
+
+        text-align:center;
+
+    }
 
 }
 
@@ -124,15 +178,23 @@ h1{
 
 <div id="container">
 
+<div id="imageBox">
+
 <img id="cover" src="cover.jpg" alt="Portada">
 
-<h1>Marce.Raggui</h1>
+<div id="name">
 
-<div class="menu">
+Marce.Raggui
 
-<a href="home.html">Historias breves</a>
+</div>
 
-<div class="soon">Portfolio (próximamente)</div>
+</div>
+
+<div id="menu">
+
+<a href="home.html">Relatos breves</a>
+
+<span>Portafolio (próximamente)</span>
 
 </div>
 
