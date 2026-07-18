@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Comic Viewer</title>
+<title>Marce Ragguis</title>
 
 <style>
 
@@ -18,160 +18,67 @@
 
 body{
 
-    background:white;
     font-family:Arial, Helvetica, sans-serif;
+    background:white;
+    color:#222;
 
-}
-
-#viewer{
+    display:flex;
+    justify-content:center;
+    align-items:center;
 
     min-height:100vh;
 
-    display:flex;
-    flex-direction:column;
+}
 
-    justify-content:center;
-    align-items:center;
+#container{
 
-    padding:20px;
+    text-align:center;
+    max-width:900px;
+    padding:40px;
 
 }
 
-#counter{
-
-    font-size:13px;
-    color:#999;
-
-    margin-bottom:15px;
-
-}
-
-/* -------- FILA PRINCIPAL -------- */
-
-#main{
-
-    display:flex;
-
-    align-items:center;
-    justify-content:center;
-
-    gap:20px;
+#cover{
 
     width:100%;
+    max-width:700px;
+    margin-bottom:40px;
 
 }
 
-.navSide{
+h1{
 
-    font-size:60px;
-
-    color:rgba(0,0,0,.20);
-
-    cursor:pointer;
-
-    user-select:none;
-
-    transition:.2s;
-
-    flex-shrink:0;
+    font-weight:normal;
+    font-size:42px;
+    margin-bottom:35px;
 
 }
 
-.navSide:hover{
-
-    color:rgba(0,0,0,.55);
-
-}
-
-img{
-
-    max-width:92vw;
-    max-height:82vh;
-
-    object-fit:contain;
-
-    cursor:pointer;
-
-    user-select:none;
-
-}
-
-/* -------- FILA INFERIOR -------- */
-
-#bottomNav{
+.menu{
 
     display:flex;
-
-    justify-content:center;
-
-    gap:80px;
-
-    margin-top:20px;
+    flex-direction:column;
+    gap:18px;
 
 }
 
-.navBottom{
+.menu a{
 
-    font-size:34px;
-
-    color:rgba(0,0,0,.35);
-
-    cursor:pointer;
-
-    transition:.2s;
-
-    user-select:none;
+    text-decoration:none;
+    color:#222;
+    font-size:26px;
 
 }
 
-.navBottom:hover{
+.menu a:hover{
 
-    color:rgba(0,0,0,.7);
+    opacity:.55;
 
 }
 
-/* -------- CELULAR -------- */
+.soon{
 
-@media (max-width:700px){
-
-    #viewer{
-
-        padding:10px;
-
-    }
-
-    #main{
-
-        gap:10px;
-
-    }
-
-    .navSide{
-
-        font-size:42px;
-
-    }
-
-    img{
-
-        max-width:82vw;
-        max-height:72vh;
-
-    }
-
-    #bottomNav{
-
-        gap:45px;
-
-        margin-top:15px;
-
-    }
-
-    .navBottom{
-
-        font-size:28px;
-
-    }
+    color:#999;
 
 }
 
@@ -181,36 +88,21 @@ img{
 
 <body>
 
-<div id="viewer">
+<div id="container">
 
-<div id="counter"></div>
+<img id="cover" src="cover.jpg" alt="Portada">
 
-<div id="main">
+<h1>Marce Ragguis</h1>
 
-<div id="left" class="navSide">❮</div>
+<div class="menu">
 
-<img id="page">
+<a href="home.html">Historias breves</a>
 
-<div id="right" class="navSide">❯</div>
-
-</div>
-
-<div id="bottomNav">
-
-<div id="first" class="navBottom">⏮</div>
-
-<div id="last" class="navBottom">⏭</div>
+<div class="soon">Portfolio (próximamente)</div>
 
 </div>
 
 </div>
-
-<script src="viewer.js"></script>
-
-</body>
-
-</html>
-
 
 </body>
 

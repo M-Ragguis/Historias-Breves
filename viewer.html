@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Comic Viewer</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    background:white;
+    font-family:Arial, Helvetica, sans-serif;
+
+}
+
+#viewer{
+
+    min-height:100vh;
+
+    display:flex;
+    flex-direction:column;
+
+    justify-content:center;
+    align-items:center;
+
+    padding:20px;
+
+}
+
+#counter{
+
+    font-size:13px;
+    color:#999;
+
+    margin-bottom:15px;
+
+}
+
+/* -------- FILA PRINCIPAL -------- */
+
+#main{
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    gap:20px;
+
+    width:100%;
+
+}
+
+.navSide{
+
+    font-size:60px;
+
+    color:rgba(0,0,0,.20);
+
+    cursor:pointer;
+
+    user-select:none;
+
+    transition:.2s;
+
+    flex-shrink:0;
+
+}
+
+.navSide:hover{
+
+    color:rgba(0,0,0,.55);
+
+}
+
+img{
+
+    max-width:92vw;
+    max-height:82vh;
+
+    object-fit:contain;
+
+    cursor:pointer;
+
+    user-select:none;
+
+}
+
+/* -------- FILA INFERIOR -------- */
+
+#bottomNav{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:80px;
+
+    margin-top:20px;
+
+}
+
+.navBottom{
+
+    font-size:34px;
+
+    color:rgba(0,0,0,.35);
+
+    cursor:pointer;
+
+    transition:.2s;
+
+    user-select:none;
+
+}
+
+.navBottom:hover{
+
+    color:rgba(0,0,0,.7);
+
+}
+
+/* -------- CELULAR -------- */
+
+@media (max-width:700px){
+
+    #viewer{
+
+        padding:10px;
+
+    }
+
+    #main{
+
+        gap:10px;
+
+    }
+
+    .navSide{
+
+        font-size:42px;
+
+    }
+
+    img{
+
+        max-width:82vw;
+        max-height:72vh;
+
+    }
+
+    #bottomNav{
+
+        gap:45px;
+
+        margin-top:15px;
+
+    }
+
+    .navBottom{
+
+        font-size:28px;
+
+    }
+
+}
+
+#backHome{
+
+    margin-top:25px;
+
+}
+
+#backHome a{
+
+    text-decoration:none;
+
+    color:#777;
+
+    font-size:15px;
+
+}
+
+#backHome a:hover{
+
+    color:#000;
+
+}
+
+</style> 
+
+
+
+</head>
+
+<body>
+
+<div id="viewer">
+
+<div id="counter"></div>
+
+<div id="main">
+
+<div id="left" class="navSide">❮</div>
+
+<img id="page">
+
+<div id="right" class="navSide">❯</div>
+
+</div>
+
+<div id="bottomNav">
+
+<div id="first" class="navBottom">⏮</div>
+
+<div id="last" class="navBottom">⏭</div>
+
+</div>
+
+<div id="backHome">
+    <a href="home.html">← Volver a Historias</a>
+</div>
+
+</div>
+
+<script src="viewer.js"></script>
+
+</body>
+
+</html>
+
+
+</body>
+
+</html>
