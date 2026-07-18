@@ -1,13 +1,13 @@
 {
   "Tardes-de-calor": {
     "title": "Tardes-de-calor",
-    "pages": 18,
-    "cover": "001.jpg"
+    "pages": 24,
+    "cover": "cover.jpg"
   },
 
   "Tardes-de-dibujo": {
     "title": "Tardes-de-dibujo",
     "pages": 15,
-    "cover": "001.jpg"
+    "cover": "cover.jpg"
   }
 }
