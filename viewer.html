@@ -20,69 +20,66 @@ body{
 
     background:white;
     font-family:Arial, Helvetica, sans-serif;
-
     overflow:hidden;
 
 }
 
 #viewer{
 
-    height:100vh;
+    height:100dvh;
 
-    display:flex;
+    display:grid;
 
-    flex-direction:column;
-
-    justify-content:space-between;
+    grid-template-rows:
+        auto
+        1fr
+        auto
+        auto;
 
     align-items:center;
 
-    padding:10px;
+    padding:8px;
 
 }
 
 #counter{
 
+    text-align:center;
+
     font-size:13px;
+
     color:#999;
 
-    flex-shrink:0;
+    padding-bottom:6px;
 
 }
 
-/* -------- FILA PRINCIPAL -------- */
-
 #main{
 
-    flex:1;
+    display:grid;
 
-    width:100%;
-
-    display:flex;
+    grid-template-columns:
+        50px
+        1fr
+        50px;
 
     align-items:center;
-
-    justify-content:center;
-
-    gap:20px;
-
-    overflow:hidden;
 
 }
 
 .navSide{
 
-    font-size:60px;
+    text-align:center;
 
-    color:rgba(0,0,0,.20);
+    font-size:58px;
+
+    color:rgba(0,0,0,.22);
 
     cursor:pointer;
 
     user-select:none;
 
     transition:.2s;
-
-    flex-shrink:0;
 
 }
 
@@ -94,19 +91,17 @@ body{
 
 #page{
 
-    max-width:90vw;
+    max-width:100%;
 
-    max-height:70vh;
+    max-height:68dvh;
+
+    margin:auto;
 
     object-fit:contain;
 
     cursor:pointer;
 
-    user-select:none;
-
 }
-
-/* -------- FILA INFERIOR -------- */
 
 #bottomNav{
 
@@ -116,23 +111,19 @@ body{
 
     gap:70px;
 
-    margin-top:10px;
-
-    flex-shrink:0;
+    padding:10px 0 4px;
 
 }
 
 .navBottom{
 
-    font-size:34px;
+    font-size:32px;
 
     color:rgba(0,0,0,.35);
 
     cursor:pointer;
 
     transition:.2s;
-
-    user-select:none;
 
 }
 
@@ -144,9 +135,9 @@ body{
 
 #backHome{
 
-    margin:8px 0 6px;
+    text-align:center;
 
-    flex-shrink:0;
+    padding-bottom:6px;
 
 }
 
@@ -156,7 +147,7 @@ body{
 
     color:#777;
 
-    font-size:15px;
+    font-size:14px;
 
 }
 
@@ -166,51 +157,60 @@ body{
 
 }
 
-/* -------- CELULAR -------- */
+/* ---------- CELULAR ---------- */
 
 @media (max-width:700px){
 
     #viewer{
 
-        padding:8px;
+        padding:6px;
 
     }
 
     #main{
 
-        gap:10px;
+        grid-template-columns:
+            36px
+            1fr
+            36px;
 
     }
 
     .navSide{
 
-        font-size:42px;
+        font-size:40px;
 
     }
 
     #page{
 
-        max-width:82vw;
-
-        max-height:62vh;
+        max-height:60dvh;
 
     }
 
     #bottomNav{
 
-        gap:45px;
+        gap:34px;
+
+        padding-top:6px;
 
     }
 
     .navBottom{
 
-        font-size:28px;
+        font-size:26px;
+
+    }
+
+    #backHome{
+
+        padding-bottom:4px;
 
     }
 
     #backHome a{
 
-        font-size:14px;
+        font-size:13px;
 
     }
 
