@@ -205,98 +205,12 @@ img{
 
 </div>
 
-<script>
+<script src="viewer.js"></script>
 
-const total = 18;
+</body>
 
-let current = 1;
+</html>
 
-const image = document.getElementById("page");
-const counter = document.getElementById("counter");
-
-function loadPage(){
-
-    const number = String(current).padStart(3,"0");
-
-    image.src = "stories/comic/" + number + ".jpg";
-
-    counter.textContent = current + " / " + total;
-
-}
-
-function next(){
-
-    if(current < total){
-
-        current++;
-        loadPage();
-
-    }
-
-}
-
-function previous(){
-
-    if(current > 1){
-
-        current--;
-        loadPage();
-
-    }
-
-}
-
-function first(){
-
-    current = 1;
-    loadPage();
-
-}
-
-function last(){
-
-    current = total;
-    loadPage();
-
-}
-
-document.getElementById("left").addEventListener("click", previous);
-
-document.getElementById("right").addEventListener("click", next);
-
-document.getElementById("first").addEventListener("click", first);
-
-document.getElementById("last").addEventListener("click", last);
-
-image.addEventListener("click", next);
-
-document.addEventListener("keydown", function(e){
-
-    switch(e.key){
-
-        case "ArrowLeft":
-            previous();
-            break;
-
-        case "ArrowRight":
-            next();
-            break;
-
-        case "Home":
-            first();
-            break;
-
-        case "End":
-            last();
-            break;
-
-    }
-
-});
-
-loadPage();
-
-</script>
 
 </body>
 
